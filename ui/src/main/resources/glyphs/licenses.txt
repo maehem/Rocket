@@ -1,0 +1,39 @@
+
+Glyphs used here came from various sources and are credited in accordance with
+their authors credit requirements.
+
+File:  population.png
+From Astronaut icon (modified) 
+made by [ https://www.freepik.com ] Freepik 
+from https://www.flaticon.com/  Flaticon 
+and licensed under http://creativecommons.org/licenses/by/3.0/  Creative Commons 3.0
+
+
+File:  plaid.png
+from http://www.photos-public-domain.com/2011/02/11/green-plaid-fabric-close-up-texture/
+and licensed under http://creativecommons.org/licenses/by/3.0/  Creative Commons 3.0
+
+
+=================================================================================
+
+All other glyphs are original artwork by code author Maehem,  Twitter: @MarkJKoch
+and licensed by Apache 2.0 License summarized below:
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+
