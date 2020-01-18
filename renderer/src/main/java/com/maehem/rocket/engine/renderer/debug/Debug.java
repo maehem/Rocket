@@ -49,7 +49,7 @@ public class Debug {
     public boolean hideWater = false;    //
     public boolean hideTerrainEdge = false;
     public boolean hideAnimatedTiles = false;
-    
+
     public boolean showTileCoordinates = true; //
     public boolean showHeightMap = false;   // ???
     //public boolean showClipBounds = false;  // ???  delete me
@@ -84,7 +84,7 @@ public class Debug {
         if (!enabled) {
             return;
         }
-        
+
         debugOverlay(g);
         showTileInfo(g);
         showFrameStats(g);
@@ -108,7 +108,7 @@ public class Debug {
             frameCount += frames;
             frames = 0;
         }
-        
+
         return time;
     }
 
@@ -123,9 +123,9 @@ public class Debug {
 
         g.setFont(new Font("Verdana", (int)(height*0.5)));
         g.setFill(new Color(255, 255, 255, 126));
-        
-        
-        g.fillText(msPerFrame / 1000 + " m/s per frame (" + fps + " FPS)", 
+
+
+        g.fillText(msPerFrame / 1000 + " m/s per frame (" + fps + " FPS)",
                 x + 20, y + height/3);
 
     }
@@ -168,37 +168,7 @@ public class Debug {
         Color textStyle = new Color(255, 255, 255, 196);
 
 // TODO   Get Corners working
-//        String tileType;
-//        if (cell.xzon.corners == game.corners[0]){
-//            tileType = "C0 TR";
-//        }else if (cell.xzon.corners == game.corners[1]){
-//            tileType = "C1 BL";
-//        }else if (cell.xzon.corners == game.corners[2]){
-//            tileType = "C2 BR";
-//        }else if (cell.xzon.corners == game.corners[3]){
-//            tileType = "C3 TL";
-//        }else{
-//            line = new Color( 128, 128, 128, 152); //'rgba(128,128,128,.6)';
-//            fill = new Color( 128, 128, 128, 102); //'rgba(128,128,128,.4)';
-//            textStyle = new Color( 0,0,0,0); // 'rgba(0,0,0,0)';
-//            tileType = "";
-//        }
-//        
-//        //if (cell.corners == game.corners[game.mapRotation]) {
-//        //  var line = 'rgba(255,0,0,.9)';
-//        //  var fill = 'rgba(255,0,0,.25)';
-//        //  var tileType = tileType + ' K';
-//        //}
-//        if (cell.corners == game.corners[game.mapRotation]) {
-//          line = new Color(255,0,0,230);
-//          fill = new Color(255,0,0,64);
-//          tileType += " K";
-//        }
-        //game.gfx.interfaceContext.font = '8px Verdana';
-        //game.gfx.interfaceContext.fillStyle = textStyle;
-        //game.gfx.interfaceContext.fillText(tileType, cell.coordinates.center.x - 16, cell.coordinates.center.y + 3);
         Point loc = cell.parent.getMapLocation(cell);
-        //graphics.ui.selectionBox(loc.x, loc.y, line, 2, fill);
     }
 
     public void networkOverlay(GraphicsContext g, Cell cell) {
@@ -231,7 +201,7 @@ public class Debug {
             }
         }
 
-        //TODO 
+        //TODO
         g.setFont(new Font("Verdana", 8));
         g.setFill(new Color(255, 255, 255, 64));
         Point loc = cell.parent.getMapLocation(cell);
@@ -248,78 +218,6 @@ public class Debug {
         }
 
         Color color;
-
-//        if (null == tile.name) {
-//            color = new Color(128, 128, 128);
-//        } else {
-//            switch (tile.name) {
-//                case "l_res":
-//                    color = new Color(0, 255, 0);
-//                    break;
-//                case "d_res":
-//                    color = new Color(0, 180, 0);
-//                    break;
-//                case "l_com":
-//                    color = new Color(0, 0, 255);
-//                    break;
-//                case "d_com":
-//                    color = new Color(0, 0, 180);
-//                    break;
-//                case "l_ind":
-//                    color = new Color(255, 255, 0);
-//                    break;
-//                case "d_ind":
-//                    color = new Color(180, 180, 0);
-//                    break;
-//                case "sea":
-//                    color = new Color(255, 0, 255);
-//                    break;
-//                case "mil":
-//                    color = new Color(0, 255, 255);
-//                    break;
-//                case "air":
-//                    color = new Color(255, 0, 0);
-//                    break;
-//                default:
-//                    color = new Color(128, 128, 128);
-//                    break;
-//            }
-//        }
-
-//        Color lineColor = new Color(color.getRed(), color.getGreen(), color.getBlue(), 128);
-//        Color fillColor = new Color(color.getRed(), color.getGreen(), color.getBlue(), 77);
-
-//        game.ui.selectionBox(cell.getMapLocation().x, cell.getMapLocation().y, lineColor, 2, fillColor);
-//        g.setFont(new Font("Verdana", Font.PLAIN, 8));
-//        g.setColor(new Color(255, 255, 255, 180));
-//        game.gfx.interfaceContext.drawString(
-//                String.valueOf(tile.type), 
-//                cell.coordinates.center.x - 10, cell.coordinates.center.y + 3
-//        );
-
-
-
-//    private void drawZoneIDs(java.awt.Graphics g) {
-//        for (int y = 0; y < data.mapInfo.mapSize; y++) {
-//            for (int x = 0; x < data.mapInfo.mapSize; x++) {
-//                if (data.map[x][y].xzon.type == 0) {
-//                    continue;
-//                }
-//                XZON zone = data.map[x][y].xzon;
-////                XTER terrain = data.terrain.grid[x][y];
-//                AltitudeInfo altm = data.map[x][y].altm;
-//
-//                int topOffset = altm.altitude * gfx.layerOffset;
-//
-//                g.setColor(new Color(255, 255, 255, 180));
-//                Font font = g.getFont();
-//                g.drawString(String.valueOf(zone.type) + "[" + Integer.toHexString(zone.corners) + "]", gfx.getDrawX(x, y) - 15, gfx.getDrawY(x, y) - topOffset - 4);
-////                g.setFont(g.getFont().deriveFont((g.getFont().getLotSize()*0.66f)));
-////                g.drawString( String.format("%2X", terrain.raw), gfx.getDrawX(x, y) - 15, gfx.getDrawY(x, y) - topOffset+4);
-//                g.setFont(font); // Put the orginal Font back.
-//            }
-//        }
-//    }
     }
 
     public void drawCrosshairs(GraphicsContext g) {
@@ -328,7 +226,7 @@ public class Debug {
         }
         int xOffset = gfx.xOffset;
         int yOffset = gfx.yOffset;
-        
+
         // Draw crosshairs
         g.setLineWidth(1.0);
         g.setStroke(Color.RED);
@@ -341,7 +239,7 @@ public class Debug {
         g.strokeLine(xOffset-20, yOffset, xOffset+20, yOffset);
         g.strokeLine(xOffset, yOffset-20, xOffset, yOffset+20);
     }
-    
+
     public void heightMap(GraphicsContext g, Cell cell) {
         if (!showHeightMap) {
             return;
@@ -383,14 +281,6 @@ public class Debug {
             return;
         }
 
-//        tileCount++;
-//
-//        g.setFont(new Font("Verdana", 8));
-//        g.setFill(new Color(255, 255, 255, 128));
-//        drawString(
-//                String.valueOf(tileCount), 
-//                cell.coordinates.center.x - 10, cell.coordinates.center.y + 3
-//        );
     }
 
     public void debugOverlay(GraphicsContext g) {
@@ -405,10 +295,10 @@ public class Debug {
 
         int x = 20;
         int y = (int) gfx.canvas.getHeight();
-        
+
         g.setFill(new Color( 0,0,0,60));
         g.fillRect(x-5, y-height, width, y-5);
-        
+
         g.setLineWidth(1.0);
         g.setStroke(Color.DARKGREY);
         g.strokeRect(x-5, y-height, width, y-5);
@@ -437,8 +327,8 @@ public class Debug {
             g.fillText("tile x: " + cell.getMapLocation().x + ", y: " + cell.getMapLocation().y + ", z: " + cell.altm.altitude, x, y);
             y -= lineInc;
         }
-        
-        g.setFont(origFont); // Put the font settings back.        
+
+        g.setFont(origFont); // Put the font settings back.
     }
 
     public void showTileInfo(GraphicsContext g) {
@@ -485,18 +375,9 @@ public class Debug {
             textData.append("");
         }
 
-//        if (cell.xzon.zoneType != null) {
-//            StructureTile tile = game.gfx.getTile(cell.xzon.type);
-//
-//            textData.append("Zone: " + cell.xzon.zoneType + " (R" + game.data.mapInfo.rotation + ": " + tile.id + ")");
-//            textData.append("  Type: " + tile.name);
-//            textData.append("  Description: " + tile.description);
-//            textData.append("");
-//        }
-
         int height = 20 + (textData.length() * 15);
         int width = 220;
-        
+
         g.fillRect(0, 0, width, height);
         int lineX = gfx.ui.cursorX + 20;
         int lineY = gfx.ui.cursorY + 25;
@@ -506,80 +387,6 @@ public class Debug {
 
         g.fillText(textData.toString(), lineX, lineY);
     }
-
-//    public void highlightCell(Cell cell, int lineWidth, Color lineColor, Color fillColor, String text, Color textColor) {
-//
-//        if (lineColor == null) {
-//            lineColor = new Color(255, 255, 0, 192);
-//        }
-//        if (lineWidth < 0) {
-//            lineWidth = 2;
-//        }
-//        if (fillColor == null) {
-//            fillColor = new Color(0, 0, 0, 0);
-//        }
-//        if (text == null) {
-//            text = "";
-//        }
-//        if (textColor == null) {
-//            textColor = new Color(0, 0, 0, 229);
-//        }
-//
-//
-//    }
-
-//
-//    private void drawAnimFrameNumber(GraphicsContext gc) {
-//        for (int y = 0; y < 128; y++) {
-//            for (int x = 0; x < 128; x++) {
-//
-//                StructureInfo xbld = game.data.map[x][y].structure;
-//                TerrainInfo xter = game.data.map[x][y].terrain;
-//                AltitudeInfo altm = game.data.map[x][y].altm;
-//
-//                int tileId = xbld.id;
-//                if (tileId == 0) {
-//                    tileId = xter.id;
-//                }
-//                if (tileId == 0) {
-//                    continue;
-//                }
-//
-//                StructureTile tile = StructureRenderer.getTile(this, tileId);
-//
-//                if (tile.getFrameCount() < 2) {
-//                    continue;
-//                }
-//
-//                int altitude = altm.altitude;
-//
-//                if (xter.id == 13) {
-//                    altitude++;
-//                }
-//                if (xter.waterLevel == TerrainInfo.WTR_LVL.SHORE
-//                        || xter.waterLevel == TerrainInfo.WTR_LVL.SUBMERGED) {
-//                    altitude = game.data.mapInfo.waterLevel;
-//                }
-//
-//                int frameNumber = getFrame(tile);
-//
-//                int topOffset = altitude * LAYER_OFFSET;
-//
-//                //gc.setColor(new Color(255, 255, 255, 69));
-//                gc.setFill(new Color(255, 255, 255, 69));
-//                Font font = gc.getFont();
-////                gc.drawString(
-////                        String.valueOf(tileId), 
-////                        getDrawX(x, y) - 15, 
-////                        getDrawY(x, y) - topOffset );
-//                gc.fillText(
-//                        "[" + String.valueOf(frameNumber) + "]",
-//                        getDrawX(x, y) - 15,
-//                        getDrawY(x, y) - topOffset + 10);
-//                gc.setFont(font); // Put the orginal Font back.
-//            }
-//        }
-//    }
 
     private void drawStructureIDs(GraphicsContext gc) {
         Game game = gfx.game;
