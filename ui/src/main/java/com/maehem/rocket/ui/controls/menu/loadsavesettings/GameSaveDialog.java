@@ -63,7 +63,7 @@ public class GameSaveDialog extends DialogPanel {
             LOGGER.finer("Save Game DONE button clicked.");
             try {
                 // TODO  Pause game
-                FileSystem fs = new FileSystem();
+                FileSystem fs = FileSystem.getInstance();
                 GameStateFile.save(fs.getOutputStreamFor(game.data.mapInfo.getFileSaveName()), game.data);
                 // TODO restore previous running state.
             } catch (IOException ex) {

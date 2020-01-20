@@ -76,7 +76,7 @@ public class GameLoadDialog extends DialogPanel {
     private VBox loadGamePane() {
         Label label = new Label("Saved Games");
 
-        FileSystem fs = new FileSystem();
+        FileSystem fs = FileSystem.getInstance();
         File[] listFiles = fs.getSaveDir().listFiles(fs.getGameSaveFilter());
         ArrayList<String> filenames = new ArrayList<>();
 
@@ -114,7 +114,7 @@ public class GameLoadDialog extends DialogPanel {
             Data data = new Data();
             
             LOGGER.log(Level.INFO, "Load Game: {0}", fileName);
-            FileSystem fs = new FileSystem();
+            FileSystem fs = FileSystem.getInstance();
             GameStateFile.load(fs.getInputStreamFor(fileName), data);
             if ( data.isLoaded() ) {
                 data.mapInfo.setFileSaveName(fileName);

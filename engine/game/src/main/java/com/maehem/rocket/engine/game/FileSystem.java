@@ -30,7 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * TODO: Tested on: OSX -- YES Windows -- NO Linux -- NO
+ * TODO: Tested on: OSX -- YES  |  Windows -- NO  |  Linux -- NO
  *
  * @author maehem
  */
@@ -38,16 +38,31 @@ public class FileSystem {
 
     private static final Logger LOGGER = Logger.getLogger(FileSystem.class.getName());
 
-    private static final String GAME_DIR = System.getProperty("user.home")
-            + File.separator + "Documents"
-            + File.separator + "RocketColony";
-    private static final String SNAPSHOT_DIR = GAME_DIR + File.separator + "Snapshots";
-    private static final String SAVE_DIR = GAME_DIR + File.separator + "Saves";
+    private static String GAME_DIR;
+    private static String SNAPSHOT_DIR;
+    private static String SAVE_DIR;
 
-    public FileSystem() {
-        LOGGER.log(Level.CONFIG, "Game directory is: {0}", GAME_DIR);
+    private static FileSystem instance = null;
+    
+    public static FileSystem getInstance() {
+        if ( instance == null ) {
+            LOGGER.log(Level.SEVERE, "Game attempted to use FileSystem before it was initialized!");    
+        }
+        
+        return instance;
     }
-
+    
+    public static void init(String gameName) {
+        if ( instance == null ) {
+            instance = new FileSystem();
+            instance.initGameFilesDirectories(gameName);
+        } else {
+            LOGGER.log(Level.SEVERE, "Game directory has already been set!  No do-overs!");
+        }
+    }
+    
+    private FileSystem() {}
+    
     public File getGameDir() {
         return new File(GAME_DIR);
     }
@@ -60,7 +75,16 @@ public class FileSystem {
         return new File(SAVE_DIR);
     }
 
-    public void initGameFilesDirectories() {
+    //public void initGameFilesDirectories() {
+    public void initGameFilesDirectories( String gameName ) {        
+        GAME_DIR = System.getProperty("user.home")
+                + File.separator + "Documents"
+                + File.separator + gameName;
+        SNAPSHOT_DIR = GAME_DIR + File.separator + "Snapshots";
+        SAVE_DIR = GAME_DIR + File.separator + "Saves";
+        
+        LOGGER.log(Level.CONFIG, "Game directory is: {0}", GAME_DIR);
+
         File rocketFiles = getGameDir();
         if (!rocketFiles.exists()) {
             try {

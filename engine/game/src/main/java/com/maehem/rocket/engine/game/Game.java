@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Mark J Koch <rocketcolony-maintainer@maehem.com>
+ * @author maehem
  */
 public class Game {
 
@@ -57,14 +57,11 @@ public class Game {
     };
 
     public Data data = null;
-    private FileSystem userGameDir;
 
     private int subTicks = 0;
 
-    public Game() {
-        userGameDir = new FileSystem();
-        
-        userGameDir.initGameFilesDirectories();        
+    public Game(String gameName) {
+        FileSystem.init(gameName);
     }
 
     public void init() {

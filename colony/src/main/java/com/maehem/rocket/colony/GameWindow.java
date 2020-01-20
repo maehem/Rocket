@@ -52,10 +52,14 @@ public class GameWindow extends Application implements UIListener {
 
     private static final Logger LOGGER = Logger.getLogger(GameWindow.class.getName());
 
-    // Use this format for exceptions
+    // Note: The Window title is derived from the MessageBundle gameTitle
+    // gameName is used for setting the folder name in the file system.
+    public static final String gameName = "RocketColony";
+    
+    // Developers:   Use this format for exceptions printing in the log.
     // LOGGER.log( Level.SEVERE, ex.toString(), ex );
+    
     private Graphics gfx;
-    //private Game game;
     private Scene scene;
 
     private final LoggingMessageList messageLog = new LoggingMessageList();
@@ -94,7 +98,7 @@ public class GameWindow extends Application implements UIListener {
         scene = new Scene(root);
         stage.setScene(scene);
         
-        Game game = new Game();        
+        Game game = new Game(gameName);        
         gfx = new Graphics(game);
         Canvas canvas = new Canvas(1600, 900);
         root.getChildren().add(canvas);        
