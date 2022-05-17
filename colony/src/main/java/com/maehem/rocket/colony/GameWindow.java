@@ -36,11 +36,13 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -100,7 +102,8 @@ public class GameWindow extends Application implements UIListener {
         
         Game game = new Game(gameName);        
         gfx = new Graphics(game);
-        Canvas canvas = new Canvas(1600, 900);
+        Rectangle2D screenBounds = Screen. getPrimary(). getBounds();
+        Canvas canvas = new Canvas(screenBounds.getWidth()-100, screenBounds.getHeight()-40);
         root.getChildren().add(canvas);        
         gfx.setCanvas(canvas);
         gfx.init();
